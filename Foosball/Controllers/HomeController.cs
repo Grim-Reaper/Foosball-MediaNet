@@ -269,27 +269,27 @@ namespace Foosball.Controllers
                         userRank.Rating = userRank.Rating - 1;
                 }
 
-                if (matchDate >= DateTime.Now.AddDays(-5))
+                if (matchDate >= DateTime.Now.AddDays(-7))
                 {
                     if (won) userRank.Scores[0].Sum += 10 * (1 + (0.25 * goalDifference));
                     userRank.Scores[0].Count++;
                 }
-                else if (matchDate >= DateTime.Now.AddDays(-10))
+                else if (matchDate >= DateTime.Now.AddDays(-14))
                 {
                     if (won) userRank.Scores[1].Sum += 10 * (1 + (0.25 * goalDifference));
                     userRank.Scores[1].Count++;
                 }
-                else if (matchDate >= DateTime.Now.AddDays(-15))
+                else if (matchDate >= DateTime.Now.AddDays(-21))
                 {
                     if (won) userRank.Scores[2].Sum += 10 * (1 + (0.25 * goalDifference));
                     userRank.Scores[2].Count++;
                 }
-                else if (matchDate >= DateTime.Now.AddDays(-20))
+                else if (matchDate >= DateTime.Now.AddDays(-28))
                 {
                     if (won) userRank.Scores[3].Sum += 10 * (1 + (0.25 * goalDifference));
                     userRank.Scores[3].Count++;
                 }
-                else if (matchDate >= DateTime.Now.AddDays(-25))
+                else if (matchDate >= DateTime.Now.AddDays(-35))
                 {
                     if (won) userRank.Scores[4].Sum += 10 * (1 + (0.25 * goalDifference));
                     userRank.Scores[4].Count++;
@@ -401,12 +401,13 @@ namespace Foosball.Controllers
                 if (_scores == null)
                     return 0d;
 
-                double score = (_scores[0].Sum / (_scores[0].Count == 0 ? 1 : _scores[0].Count))
-                             + 0.8 * (_scores[1].Sum / (_scores[1].Count == 0 ? 1 : _scores[1].Count))
-                             + 0.6 * (_scores[2].Sum / (_scores[2].Count == 0 ? 1 : _scores[2].Count))
-                             + 0.4 * (_scores[3].Sum / (_scores[3].Count == 0 ? 1 : _scores[3].Count))
-                             + 0.2 * (_scores[4].Sum / (_scores[4].Count == 0 ? 1 : _scores[4].Count))
-                             + 0.1 * (_scores[5].Sum / (_scores[5].Count == 0 ? 1 : _scores[5].Count));
+                double score = 
+                               AdjustOffsetRating(1.0, _scores[0].Count) * (_scores[0].Sum / (_scores[0].Count == 0 ? 1 : _scores[0].Count))
+                             + AdjustOffsetRating(0.8, _scores[1].Count) * (_scores[1].Sum / (_scores[1].Count == 0 ? 1 : _scores[1].Count))
+                             + AdjustOffsetRating(0.6, _scores[2].Count) * (_scores[2].Sum / (_scores[2].Count == 0 ? 1 : _scores[2].Count))
+                             + AdjustOffsetRating(0.4, _scores[3].Count) * (_scores[3].Sum / (_scores[3].Count == 0 ? 1 : _scores[3].Count))
+                             + AdjustOffsetRating(0.2, _scores[4].Count) * (_scores[4].Sum / (_scores[4].Count == 0 ? 1 : _scores[4].Count))
+                             + AdjustOffsetRating(0.1, _scores[5].Count) * (_scores[5].Sum / (_scores[5].Count == 0 ? 1 : _scores[5].Count));
                 return score;
             }
         }
@@ -417,6 +418,18 @@ namespace Foosball.Controllers
         }
 
         public int Rating { get; set; }
+
+        private double AdjustOffsetRating(double offset, int count)
+        {
+            if (count < 15)
+                return offset > 0.2 ? offset - 0.2 : 0.1;
+            if (count < 10)
+                return offset > 0.4 ? offset - 0.4 : 0.1;
+            if (count < 5)
+                return offset > 0.6 ? offset - 0.6 : 0.1;
+
+            return offset;
+        }
     }
 
     public class UserProfile
