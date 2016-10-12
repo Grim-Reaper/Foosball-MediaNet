@@ -435,12 +435,12 @@ namespace Foosball.Controllers
         {
             if (ConfigurationManager.AppSettings["matchCountOffsetReductionStatus"].ToLower().Equals("enabled"))
             {
-                if (count < 15)
-                    return offset > 0.2 ? offset - 0.2 : 0.1;
-                if (count < 10)
-                    return offset > 0.4 ? offset - 0.4 : 0.1;
                 if (count < 5)
                     return offset > 0.6 ? offset - 0.6 : 0.1;
+                if (count < 10)
+                    return offset > 0.4 ? offset - 0.4 : 0.1;
+                if (count < 15)
+                    return offset > 0.2 ? offset - 0.2 : 0.1;
             }
 
             return offset;
