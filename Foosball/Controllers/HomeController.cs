@@ -328,6 +328,17 @@ namespace Foosball.Controllers
         public string Score { get; set; }
 
         public DateTime Date { get; set; }
+
+        public int GoalDifference
+        {
+            get
+            {
+                string[] scores = Score.Split(':');
+                int team1Score = int.Parse(scores[0]),
+                    team2Score = int.Parse(scores[1]);
+                return team1Score == 10 ? team1Score - team2Score : team2Score - team1Score;
+            }
+        }
     }
 
     public class Team

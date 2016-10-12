@@ -79,3 +79,5 @@ html,body { background: #e4e2e3;}
 .box .msg { margin-top: 25px;}
 .results{ clear: both;padding-top: 25px;}
 .img-bigger { height: 75px !important;width: 75px !important;}
+
+.bold { font-weight: bold; }

@@ -83,8 +83,10 @@
             <thead>
             <tr>
                 <th class="text-left">Date</th>
-                <th class="text-left">Match</th>
+                <th class="text-right">Team 1</th>
                 <th class="text-center">Score</th>
+                <th class="text-left">Team 2</th>
+                <th class="text-left">Goal Difference</th>
                 <th class="text-center">Result</th>
             </tr>
             </thead>
@@ -101,8 +103,18 @@
 
                 <tr>
                     <td>@match.Date.ToSpecialString()</td>
-                    <td>@match.Team1.Players[0] & @match.Team1.Players[1] vs @match.Team2.Players[0] & @match.Team2.Players[1]</td>
+                    <td class="text-right">
+                        <span class="@(Model.UserRank.Username == match.Team1.Players[0] ? "bold" : "")">@match.Team1.Players[0]</span>
+                        <span>&amp;</span>
+                        <span class="@(Model.UserRank.Username == match.Team1.Players[1] ? "bold" : "")">@match.Team1.Players[1]</span>
+                    </td>
                     <td class="text-center">@match.Score</td>
+                    <td class="text-left">
+                        <span class="@(Model.UserRank.Username == match.Team2.Players[0] ? "bold" : "")">@match.Team2.Players[0]</span>
+                        <span>&amp;</span>
+                        <span class="@(Model.UserRank.Username == match.Team2.Players[1] ? "bold" : "")">@match.Team2.Players[1]</span>
+                    </td>
+                    <td class="text-right">@(matchWon ? match.GoalDifference : match.GoalDifference * -1)</td>
                     <td class="text-center">
                         @if (matchWon)
                         {
