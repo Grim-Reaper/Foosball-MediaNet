@@ -172,3 +172,12 @@
 [10-11-2016] Neel, Amit vs Ian, Anant - 10:6
 [10-11-2016] Ian, Parth vs Amit, Neel - 10:7
 [10-11-2016] Neel, Yasser vs Parth, Anant - 10:5
+[10-12-2016] Ian, Parth vs Amit, Anant - 10:6
+[10-12-2016] Ian, Vipresh vs Sahil, Anant - 10:9
+[10-12-2016] Anant, Sahil vs Ian, Vipresh - 10:3
+[10-12-2016] Ian, Parth vs Sahil, Vipresh - 10:3
+[10-12-2016] Ian, Sahil vs Parth, Vipresh - 10:3
+[10-12-2016] Amit, Anant vs Vaibhav, Sahil - 10:5
+[10-12-2016] Amit, Sahil vs Vaibhav, Ian - 10:8
+[10-12-2016] Ian, Sahil vs Amit, Anant - 10:0
+[10-12-2016] Ian, Anant vs Amit, Sahil - 10:8
