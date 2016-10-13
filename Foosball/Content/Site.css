@@ -49,6 +49,28 @@ span.frow.title{ position: absolute;left: 80px;top: 10px;width: 100px;}
 table .frow.title .user { display: block;}
 .L{ color: #E85B50;}
 .W{ color: #32BE6E;}
+
+.W.Diff10 { color: #32BE6E; }
+.W.Diff9 { color: #33C05F; }
+.W.Diff8 { color: #34C24F; }
+.W.Diff7 { color: #36C440; }
+.W.Diff6 { color: #3DC637; }
+.W.Diff5 { color: #4FC838; }
+.W.Diff4 { color: #62CA3A; }
+.W.Diff3 { color: #75CC3B; }
+.W.Diff2 { color: #88CE3D; }
+.W.Diff1 { color: #9BD03E; }
+.L.Diff1 { color: #C1D541; }
+.L.Diff2 { color: #D5D743; }
+.L.Diff3 { color: #D9CA44; }
+.L.Diff4 { color: #DBBA46; }
+.L.Diff5 { color: #DDAA47; }
+.L.Diff6 { color: #DF9B49; }
+.L.Diff7 { color: #E18B4B; }
+.L.Diff8 { color: #E37B4C; }
+.L.Diff9 { color: #E56B4E; }
+.L.Diff10 { color: #E85B50; }
+
 .trend { color: #999;}
 table .medal {top: 7px;left: -11px;}
 table .cup {top: 13px;left: 180px;display: none;}

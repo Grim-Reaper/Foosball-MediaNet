@@ -117,11 +117,11 @@
                     <td class="text-right">
                         @if (matchWon)
                         {
-                            <span class="W @match.GoalDifference">@match.GoalDifference</span>
+                            <span class="W @("Diff" + match.GoalDifference)">@match.GoalDifference</span>
                         }
                         else
                         {
-                            <span class="L @match.GoalDifference">@(match.GoalDifference * -1)</span>
+                            <span class="L @("Diff" + match.GoalDifference)">@(match.GoalDifference * -1)</span>
                         }
                     </td>
                     <td class="text-center">
