@@ -11,16 +11,28 @@
             <thead>
             <tr>
                 <th class="text-left">Date</th>
-                <th class="text-left">Match</th>
+                <th class="text-right">Winning Team</th>
                 <th class="text-center">Score</th>
+                <th class="text-left">Losing Team</th>
+                <th class="text-right">Goal Difference</th>
             </tr>
             </thead>
             @foreach (Match match in Model)
             {
                 <tr>
                     <td>@match.Date.ToSpecialString()</td>
-                    <td>@match.Team1.Players[0] & @match.Team1.Players[1] vs @match.Team2.Players[0] & @match.Team2.Players[1]</td>
-                    <td class="text-center">@match.Score</td>
+                    <td class="text-right">
+                        <span>@match.Team1.Players[0]</span>
+                        <span>&amp;</span>
+                        <span>@match.Team1.Players[1]</span>
+                    </td>
+                    <td class="text-center bold">@match.Score</td>
+                    <td class="text-left">
+                        <span>@match.Team2.Players[0]</span>
+                        <span>&amp;</span>
+                        <span>@match.Team2.Players[1]</span>
+                    </td>
+                    <td class="text-right">@match.GoalDifference</td>
                 </tr>
             }
         </table>
