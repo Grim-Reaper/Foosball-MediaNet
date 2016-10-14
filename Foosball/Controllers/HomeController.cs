@@ -38,7 +38,7 @@ namespace Foosball.Controllers
             List<Match> matches = new List<Match>();
             foreach (string matchStr in lines)
             {
-                if (string.IsNullOrWhiteSpace(matchStr))
+                if (string.IsNullOrWhiteSpace(matchStr) || matchStr.StartsWith("(U)"))
                     continue;
 
                 int dateS = matchStr.IndexOf('[');
