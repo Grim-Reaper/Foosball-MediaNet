@@ -9,6 +9,25 @@ namespace Foosball.Controllers
 {
     public class HomeController : Controller
     {
+        private static Dictionary<string, string> _playerDictionary;
+
+        public Dictionary<string, string> GetPlayerDictionary
+        {
+            get
+            {
+                if (_playerDictionary == null)
+                {
+                    _playerDictionary = new Dictionary<string, string>();
+                    string[] array = System.IO.File.ReadAllLines(Server.MapPath(@"~/App_Data/Players_Map.txt"));
+                    foreach (string[] maps in from line in array where !string.IsNullOrWhiteSpace(line) select line.Split(','))
+                    {
+                        _playerDictionary.Add(maps[0], maps[1]);
+                    }
+                }
+                return _playerDictionary;
+            }
+        }
+
         public ActionResult Index()
         {
             List<UserRank> userRanks = GetUserRanks();
@@ -220,8 +239,11 @@ namespace Foosball.Controllers
             List<UserRank> userRanks = new List<UserRank>();
             foreach (string key in hashtable.Keys)
             {
+                string displayUsername;
                 UserRank temp = (UserRank)hashtable[key];
                 temp.Username = key;
+                GetPlayerDictionary.TryGetValue(key, out displayUsername);
+                temp.DisplayUsername = displayUsername;
                 userRanks.Add(temp);
             }
             userRanks = userRanks
@@ -360,26 +382,7 @@ namespace Foosball.Controllers
 
     public class UserRank
     {
-        public string DisplayUsername
-        {
-            get
-            {
-                if (Username == "Yasser")
-                {
-                    return "Ser Yasser";
-                }
-                if (Username == "Amit")
-                {
-                    return "Mitra Bhai";
-                }
-                if (Username == "Ali")
-                {
-                    return "Squire Ali";
-                }
-                return Username;
-            }
-        }
-
+        public string DisplayUsername { get; set; }
         public string Username { get; set; }
         public int Played { get; set; }
         public int Won { get; set; }
