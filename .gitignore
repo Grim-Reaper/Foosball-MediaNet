@@ -3,3 +3,4 @@
 /Foosball/*.user
 /*.suo
 /Deployment
+*.vs
