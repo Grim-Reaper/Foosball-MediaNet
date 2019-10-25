@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -192,11 +194,11 @@
     <Content Include="Content\images\bronze-medal.png" />
     <Content Include="Content\images\cup.png" />
     <Content Include="Content\images\gold-medal.png" />
-    <Content Include="Content\images\players\Ali.png" />
+    <Content Include="Content\images\players\ali.ri.png" />
     <Content Include="Content\images\players\fallback.png" />
-    <Content Include="Content\images\players\Parth.png" />
-    <Content Include="Content\images\players\Vipresh.png" />
-    <Content Include="Content\images\players\Yasser.png" />
+    <Content Include="Content\images\players\parth.j.png" />
+    <Content Include="Content\images\players\vipresh.j.png" />
+    <Content Include="Content\images\players\yasser.s.png" />
     <Content Include="Content\images\silver-medal.png" />
     <Content Include="Content\Site.css" />
     <Content Include="App_Data\Data.txt">
